@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="20dp"
+    tools:context=".activity.MainActivity">
 
-    <TextView
+
+    <FrameLayout
+        android:background="#75434343"
+        android:padding="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/shutter_btn"
+            android:src="@drawable/btn_photo"
+            android:background="@null"
+            android:layout_width="@dimen/shutter_btn_width"
+            android:layout_height="@dimen/shutter_btn_width"/>
+
+        <com.hpf.customview.widget.CircleProgressBar
+            android:layout_width="@dimen/shutter_btn_width"
+            android:layout_height="@dimen/shutter_btn_width"
+            android:id="@+id/shutter_capture_animation"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:scaleType="centerInside"/>
+    </FrameLayout>
+
+
+</LinearLayout>
