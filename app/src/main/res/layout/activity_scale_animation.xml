@@ -2,28 +2,80 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <FrameLayout
-        android:background="#000000"
         android:id="@+id/preview_container"
-        android:layout_width="720px"
-        android:layout_height="1440px">
+        android:layout_width="240dp"
+        android:layout_height="480dp"
+        android:background="#000000">
 
         <FrameLayout
             android:id="@+id/peview_frame"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
             android:layout_gravity="center"
-            android:background="#00BCD4"
-            android:layout_width="720px"
-            android:layout_height="960px">
+            android:background="#00BCD4">
+
             <TextView
                 android:id="@+id/text"
-                android:text="preview_content"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="preview_content" />
+
         </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cover_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/cover_view"
+                android:background="#BE8C8C8B"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_height="320dp"/>
+        </FrameLayout>
+
+
     </FrameLayout>
 
 
+    <LinearLayout
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_1_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:onClick="setTo1_1"
+            android:text="setTo1_1" />
+
+        <Button
+            android:id="@+id/btn_4_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setTo4_3"
+            android:text="setTo4_3" />
+
+        <Button
+            android:id="@+id/btn_16_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setTo16_9"
+            android:text="setTo16_9" />
+
+        <Button
+            android:id="@+id/btn_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setToFull"
+            android:text="setTo_FULL" />
+
+    </LinearLayout>
 
 </LinearLayout>
