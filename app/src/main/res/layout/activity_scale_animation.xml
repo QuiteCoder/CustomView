@@ -19,9 +19,12 @@
 
             <TextView
                 android:id="@+id/text"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="preview_content" />
+                android:text="preview" />
 
         </FrameLayout>
 
@@ -29,12 +32,21 @@
             android:id="@+id/cover_view_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <View
+            <RelativeLayout
                 android:id="@+id/cover_view"
-                android:background="#BE8C8C8B"
+                android:background="#6F8C8C8B"
                 android:layout_width="match_parent"
                 android:layout_gravity="bottom"
-                android:layout_height="320dp"/>
+                android:layout_height="320dp">
+                <TextView
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="preview_cover" />
+            </RelativeLayout>
+
         </FrameLayout>
 
 
