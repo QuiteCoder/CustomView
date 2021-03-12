@@ -53,4 +53,9 @@ class MainActivity : AppCompatActivity() {
         val intent : Intent = Intent(this, ActivityScaleAnimation::class.java)
         startActivity(intent)
     }
+
+    fun dashboardView(view: View) {
+        val intent : Intent = Intent(this, DashBoardViewActivity::class.java)
+        startActivity(intent)
+    }
 }

@@ -29,14 +29,27 @@
             android:scaleType="centerInside"/>
     </FrameLayout>
 
-    <Button
-        android:text="gotoScaleAnimationPage"
-        android:onClick="gotoScaleAnimationPage"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
 
+        <Button
+            android:text="相机切换previewSize缩放动画"
+            android:onClick="gotoScaleAnimationPage"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="仪表盘自定义View"
+            android:onClick="dashboardView"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
