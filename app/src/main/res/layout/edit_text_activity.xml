@@ -21,6 +21,7 @@
 
         <com.hpf.customview.widget.MaterialEditText
             android:id="@+id/et"
+            android:hint="请输入账号"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"/>
     </FrameLayout>
