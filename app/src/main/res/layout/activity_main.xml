@@ -6,50 +6,43 @@
     android:padding="20dp"
     tools:context=".activity.MainActivity">
 
-
-    <FrameLayout
-        android:background="#75434343"
-        android:padding="5dp"
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/shutter_btn"
-            android:src="@drawable/btn_photo"
-            android:background="@null"
-            android:layout_width="@dimen/shutter_btn_width"
-            android:layout_height="@dimen/shutter_btn_width"/>
-
-        <com.hpf.customview.widget.CircleProgressBar
-            android:layout_width="@dimen/shutter_btn_width"
-            android:layout_height="@dimen/shutter_btn_width"
-            android:id="@+id/shutter_capture_animation"
-            android:gravity="center"
-            android:visibility="invisible"
-            android:scaleType="centerInside"/>
-    </FrameLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="相机切换previewSize缩放动画"
-            android:onClick="gotoScaleAnimationPage"
-            android:layout_centerHorizontal="true"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
 
-        <Button
-            android:text="仪表盘自定义View"
-            android:onClick="dashboardView"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="shutterButton"
+                android:text="相机拍照按钮动画" />
 
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="gotoScaleAnimationPage"
+                android:text="相机切换previewSize缩放动画" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="dashboardView"
+                android:text="仪表盘自定义View" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="materialEditText"
+                android:text="自定义EditText" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>

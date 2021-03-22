@@ -16,22 +16,12 @@ import com.hpf.customview.widget.CircleProgressBar
 class MainActivity : AppCompatActivity() {
     val TAG : String = this.javaClass.simpleName
     //private lateinit var mHandler : Handler
-    val STOP_ANIMATION : Int = 1
-    lateinit var mShutterProgressBar : CircleProgressBar
-    lateinit var mShutterBtn : ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mShutterProgressBar = findViewById(R.id.shutter_capture_animation)as CircleProgressBar
-        mShutterBtn = findViewById(R.id.shutter_btn)as ImageButton
-        mShutterBtn.setOnClickListener {
-            mShutterBtn.isClickable = false
-            mHandler.sendEmptyMessageDelayed(STOP_ANIMATION,5000)
-            mShutterProgressBar.visibility = View.VISIBLE
-            mShutterBtn.visibility = View.INVISIBLE
-            mShutterProgressBar.start()
-        }
+
     }
 
     private var mHandler : Handler = object : Handler(Looper.getMainLooper()) {
@@ -39,14 +29,14 @@ class MainActivity : AppCompatActivity() {
             super.handleMessage(msg)
             Log.d(TAG,"handleMessage ${msg.what}")
             when(msg.what) {
-                STOP_ANIMATION -> {
-                    mShutterProgressBar.visibility = View.INVISIBLE
-                    mShutterBtn.visibility = View.VISIBLE
-                    mShutterProgressBar.stop()
-                    mShutterBtn.isClickable = true
-                }
+
             }
         }
+    }
+
+    fun shutterButton(view: View) {
+        val intent : Intent = Intent(this, ShutterButtonActivity::class.java)
+        startActivity(intent)
     }
 
     fun gotoScaleAnimationPage(view: View) {
@@ -56,6 +46,11 @@ class MainActivity : AppCompatActivity() {
 
     fun dashboardView(view: View) {
         val intent : Intent = Intent(this, DashBoardViewActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun materialEditText(view: View) {
+        val intent : Intent = Intent(this, MaterialEditTextActivity::class.java)
         startActivity(intent)
     }
 }
