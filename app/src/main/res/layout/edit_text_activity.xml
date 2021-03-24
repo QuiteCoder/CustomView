@@ -5,16 +5,6 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:background="#FF5722"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.hpf.customview.widget.MaterialEditText
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-    </FrameLayout>
-
-    <FrameLayout
         android:background="#EBFFFB00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
