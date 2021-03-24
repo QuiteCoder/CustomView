@@ -41,6 +41,12 @@
                 android:onClick="materialEditText"
                 android:text="自定义EditText" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="multilineText"
+                android:text="自定义图文控件" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -20,6 +20,7 @@
         <activity android:name=".activity.ActivityScaleAnimation"/>
         <activity android:name=".activity.DashBoardViewActivity"/>
         <activity android:name=".activity.MaterialEditTextActivity"/>
+        <activity android:name=".activity.MultilineTextActivity"/>
     </application>
 
 </manifest>

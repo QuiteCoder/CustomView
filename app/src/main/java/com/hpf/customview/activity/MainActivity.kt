@@ -53,4 +53,9 @@ class MainActivity : AppCompatActivity() {
         val intent : Intent = Intent(this, MaterialEditTextActivity::class.java)
         startActivity(intent)
     }
+
+    fun multilineText(view: View) {
+        val intent : Intent = Intent(this, MultilineTextActivity::class.java)
+        startActivity(intent)
+    }
 }

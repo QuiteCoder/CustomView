@@ -22,7 +22,7 @@ class MaterialEditText(context: Context, attrs: AttributeSet) : AppCompatEditTex
         isDither = true
         textSize = TEXT_SIZE
     }
-    private var floatTextShown:Boolean = true
+    private var floatTextShown:Boolean = false
     var floatTextFraction = 0f
         set(value) {
             field = value
@@ -55,7 +55,7 @@ class MaterialEditText(context: Context, attrs: AttributeSet) : AppCompatEditTex
     override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter)
         Log.d("onTextChanged","floatTextShown = " + floatTextShown)
-        /*if (!floatTextShown && !text.isNullOrEmpty()) {
+        if (!floatTextShown && !text.isNullOrEmpty()) {
             //播放上升动画
             animator.start()
             floatTextShown = true
@@ -63,7 +63,7 @@ class MaterialEditText(context: Context, attrs: AttributeSet) : AppCompatEditTex
             //播放下降动画
             animator.reverse()
             floatTextShown = false
-        }*/
+        }
 
     }
 }
