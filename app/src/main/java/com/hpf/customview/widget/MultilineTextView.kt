@@ -40,7 +40,16 @@ class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context,
         //FontMetrics类有四个属性，分别是top, ascent, descent, bottom，是与base的相差的距离
         //详情可看FrontMetrics.png
         mTextPaint.getFontMetrics(fontMetrics)
-        canvas.drawText(textSample,0f,-fontMetrics.top,mPaint)
+        val measureWidth = floatArrayOf(0f)
+        var start = 0
+        var count = 0
+        var verticalOffset = -fontMetrics.top
+        while (start < textSample.length) {
+            count = mPaint.breakText(textSample, start, textSample.length, true, width.toFloat(), measureWidth)
+            canvas.drawText(textSample, start, start + count, 0f, verticalOffset, mPaint)
+            start += count
+            verticalOffset += mPaint.fontSpacing
+        }
     }
 
     fun getAvatar(width : Int) : Bitmap{
