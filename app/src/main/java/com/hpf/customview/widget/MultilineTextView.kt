@@ -1,15 +1,15 @@
 package com.hpf.customview.widget
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.Paint
+import android.graphics.*
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 import com.hpf.customview.R
 import com.hpf.customview.dp
+
+val IMAGE_WIDTH = 100.dp
+val IMAGE_TOP = 50.dp
 
 class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     var textSample =
@@ -28,15 +28,16 @@ class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context,
     }
 
     var mImagePaint = Paint(Paint.ANTI_ALIAS_FLAG)
-    var mBitmap = getAvatar(120.dp.toInt())
+    var mBitmap = getAvatar(IMAGE_WIDTH.toInt())
     val fontMetrics  =  Paint.FontMetrics()
+
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         //val staticLayout =
         //   StaticLayout(textSample, mTextPaint, width, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false)
         //staticLayout.draw(canvas)
-        canvas.drawBitmap(mBitmap,width-120.dp,50.dp ,mImagePaint)
+        canvas.drawBitmap(mBitmap, width - IMAGE_WIDTH, IMAGE_TOP, mImagePaint)
         //FontMetrics类有四个属性，分别是top, ascent, descent, bottom，是与base的相差的距离
         //详情可看FrontMetrics.png
         mTextPaint.getFontMetrics(fontMetrics)
@@ -45,7 +46,19 @@ class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context,
         var count = 0
         var verticalOffset = -fontMetrics.top
         while (start < textSample.length) {
-            count = mPaint.breakText(textSample, start, textSample.length, true, width.toFloat(), measureWidth)
+            //文字避开图片
+            var breakTextLength = width.toFloat()
+            //每行文字的底部
+            var textBottom = verticalOffset + fontMetrics.bottom
+            //每行文字的顶部
+            var textTop = verticalOffset + fontMetrics.top
+            //文字边界与图片边界做比较
+            if (textBottom < IMAGE_TOP || textTop > IMAGE_TOP + mBitmap.height) {
+                breakTextLength = width.toFloat()
+            } else {
+                breakTextLength = width.toFloat() - IMAGE_WIDTH
+            }
+            count = mPaint.breakText(textSample, start, textSample.length, true, breakTextLength, measureWidth)
             canvas.drawText(textSample, start, start + count, 0f, verticalOffset, mPaint)
             start += count
             verticalOffset += mPaint.fontSpacing
