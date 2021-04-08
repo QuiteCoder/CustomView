@@ -47,6 +47,12 @@
                 android:onClick="multilineText"
                 android:text="自定义图文控件" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="multitouchview"
+                android:text="多点触控" />
+
         </LinearLayout>
     </ScrollView>
 

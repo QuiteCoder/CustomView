@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <com.hpf.customview.widget.DashBoardView
+        android:tooltipText="仪表盘"
         android:background="#2196F3"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>

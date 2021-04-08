@@ -35,27 +35,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun shutterButton(view: View) {
-        val intent : Intent = Intent(this, ShutterButtonActivity::class.java)
+        val intent = Intent(this, ShutterButtonActivity::class.java)
         startActivity(intent)
     }
 
     fun gotoScaleAnimationPage(view: View) {
-        val intent : Intent = Intent(this, ActivityScaleAnimation::class.java)
+        val intent = Intent(this, ActivityScaleAnimation::class.java)
         startActivity(intent)
     }
 
     fun dashboardView(view: View) {
-        val intent : Intent = Intent(this, DashBoardViewActivity::class.java)
+        val intent = Intent(this, DashBoardViewActivity::class.java)
         startActivity(intent)
     }
 
     fun materialEditText(view: View) {
-        val intent : Intent = Intent(this, MaterialEditTextActivity::class.java)
+        val intent = Intent(this, MaterialEditTextActivity::class.java)
         startActivity(intent)
     }
 
     fun multilineText(view: View) {
-        val intent : Intent = Intent(this, MultilineTextActivity::class.java)
+        val intent = Intent(this, MultilineTextActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun multitouchview(view: View) {
+        val intent = Intent(this, MultiTouchViewActivity::class.java)
         startActivity(intent)
     }
 }

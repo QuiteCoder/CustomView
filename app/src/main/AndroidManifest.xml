@@ -21,6 +21,7 @@
         <activity android:name=".activity.DashBoardViewActivity"/>
         <activity android:name=".activity.MaterialEditTextActivity"/>
         <activity android:name=".activity.MultilineTextActivity"/>
+        <activity android:name=".activity.MultiTouchViewActivity"/>
     </application>
 
 </manifest>
