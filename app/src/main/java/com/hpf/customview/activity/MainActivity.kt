@@ -63,4 +63,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, MultiTouchViewActivity::class.java)
         startActivity(intent)
     }
+
+    fun scaleProgressBar(view: View) {
+        val intent = Intent(this, ScaleProgressBarActivity::class.java)
+        startActivity(intent)
+    }
 }

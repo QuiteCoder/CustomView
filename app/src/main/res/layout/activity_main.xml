@@ -53,6 +53,12 @@
                 android:onClick="multitouchview"
                 android:text="多点触控" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="scaleProgressBar"
+                android:text="刻度进度条" />
+
         </LinearLayout>
     </ScrollView>
 

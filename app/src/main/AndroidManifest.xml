@@ -22,6 +22,7 @@
         <activity android:name=".activity.MaterialEditTextActivity"/>
         <activity android:name=".activity.MultilineTextActivity"/>
         <activity android:name=".activity.MultiTouchViewActivity"/>
+        <activity android:name=".activity.ScaleProgressBarActivity"/>
     </application>
 
 </manifest>
