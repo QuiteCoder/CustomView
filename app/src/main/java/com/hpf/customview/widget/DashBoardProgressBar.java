@@ -11,8 +11,11 @@ import android.graphics.PathDashPathEffect;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.core.view.GestureDetectorCompat;
 
 
 public class DashBoardProgressBar extends View {
@@ -44,15 +47,17 @@ public class DashBoardProgressBar extends View {
     private float mCursorRealX;
     private float mDownX;
     private float mAadvance;
+    private boolean mHadMoved;
+    private float mCursorLimitStartX;
+    private float mCursorLimitEndX;
 
     private final String[] mTexts = {"4", "60", "300", "1800"};
     private float mLongAadvance;
     private int mNewIndex;
 
     public OnIndexChangeListener mOnIndexChangeListener;
-    private boolean mHadMoved;
-    private float mCursorLimitStartX;
-    private float mCursorLimitEndX;
+    private int mTrackingPointerId;
+
 
     public interface OnIndexChangeListener {
         void onIndexChange(int index);
@@ -158,24 +163,62 @@ public class DashBoardProgressBar extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int x = (int) event.getX();
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 mHadMoved = false;
-                mDownX = x;
+                mTrackingPointerId = event.getPointerId(0);
+                mDownX = event.getX();
+                Log.d(TAG, "[ACTION_DOWN] mDownX = " + mDownX + " mTrackingPointerId = " + mTrackingPointerId);
+                mCurrentOffset = mCursorRealX;
+                break;
+            case MotionEvent.ACTION_POINTER_DOWN:
+                //取正在点击的手指的id
+                int actionIndex = event.getActionIndex();
+                mTrackingPointerId = event.getPointerId(actionIndex);
+                Log.d(TAG, "[ACTION_POINTER_DOWN] actionIndex = " + actionIndex + " mTrackingPointerId = " + mTrackingPointerId);
+                mDownX = event.getX(actionIndex);
+                mCurrentOffset = mCursorRealX;
+                break;
+            case MotionEvent.ACTION_POINTER_UP:
+                //获取抬起手指的index
+                actionIndex = event.getActionIndex();
+                int pointerId = event.getPointerId(actionIndex);
+                Log.d(TAG, "[ACTION_POINTER_UP]111 pointerId = " + pointerId
+                        + "actionIndex = " + actionIndex + " mTrackingPointerId = " + mTrackingPointerId);
+                //判断是否最后按下的那根手指抬起了,是->把事件交给倒数第二根手指; 否->事件依然是给最后的手指处理
+                if(pointerId == mTrackingPointerId) {
+                    int newIndex = 0;
+                    if (actionIndex == event.getPointerCount() - 1) {
+                        //倒数第二根手指
+                        newIndex = event.getPointerCount() - 2;
+                    } else {
+                        //倒数第一根手指
+                        newIndex = event.getPointerCount() - 1;
+                    }
+                    mTrackingPointerId = event.getPointerId(newIndex);
+                    mDownX = event.getX(newIndex);
+                    mCurrentOffset = mCursorRealX;
+                }
+                Log.d(TAG, "[ACTION_POINTER_UP]222  mTrackingPointerId = " + mTrackingPointerId);
                 break;
             case MotionEvent.ACTION_MOVE:
-                mHadMoved = true;
-                float dx = event.getX() - mDownX;
-                mCurrentOffset = dx * 1.5f;
-                mCursorRealX += mCurrentOffset;
+                actionIndex = event.findPointerIndex(mTrackingPointerId);
+                Log.d(TAG, "[ACTION_MOVE] pointerIndex = " + actionIndex + " mTrackingPointerId = " + mTrackingPointerId);
+                if (actionIndex < 0) break;
+                float dx = event.getX(actionIndex) - mDownX;
+                if (Math.abs(dx) < 1.0f) {
+                    mHadMoved = false;
+                    break;
+                } else {
+                    mHadMoved = true;
+                }
+                mCursorRealX = dx * 1.5f + mCurrentOffset;
                 if (mCursorRealX < mCursorLimitStartX) {
                     mCursorRealX = mCursorLimitStartX;
                 }
                 if (mCursorRealX > mCursorLimitEndX) {
                     mCursorRealX = mCursorLimitEndX;
                 }
-                mDownX = event.getX();
                 //float indexf = (mCursorRealX - mCursorStartX - mCursorStartOffsetX) / mAadvance;
                 int index = Math.round((mCursorRealX - mCursorLimitStartX) / mAadvance);
                 //Log.d(TAG, " ff = " + ff + "  indexf = " + Float.toString(indexf));
@@ -189,6 +232,8 @@ public class DashBoardProgressBar extends View {
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
+                actionIndex = event.getActionIndex();
+                Log.d(TAG, "[ACTION_UP] mHadMoved = " + mHadMoved + " actionIndex = " + actionIndex);
                 float translationX = 0f;
                 float f = (mCursorRealX - mCursorLimitStartX)/(mAadvance/2);
                 float multiple = (float) Math.floor(f);
@@ -262,7 +307,7 @@ public class DashBoardProgressBar extends View {
     private void setCursorX(float value) {
         float offsetValue = value - oldValue;
         oldValue = value;
-        Log.d(TAG, "[setCursorX] value = " + value);
+        //Log.d(TAG, "[setCursorX] value = " + value);
         mCursorRealX += offsetValue;
         invalidate();
     }
