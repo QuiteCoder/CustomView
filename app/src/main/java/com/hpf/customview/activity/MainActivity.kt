@@ -1,27 +1,28 @@
 package com.hpf.customview.activity
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.util.Log
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.ImageButton
+import androidx.core.os.TraceCompat
+import com.hpf.customview.LaunchTimer
 import com.hpf.customview.R
 import com.hpf.customview.widget.CircleProgressBar
 
 class MainActivity : AppCompatActivity() {
     val TAG : String = this.javaClass.simpleName
-    //private lateinit var mHandler : Handler
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_CustomView)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        Log.i(TAG,"MainActivity create")
     }
 
     private var mHandler : Handler = object : Handler(Looper.getMainLooper()) {

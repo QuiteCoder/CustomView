@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import com.hpf.customview.R
 import com.hpf.customview.dp
@@ -74,4 +75,5 @@ class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context,
         options.inTargetDensity = width
         return BitmapFactory.decodeResource(resources, R.mipmap.image, options)
     }
+
 }

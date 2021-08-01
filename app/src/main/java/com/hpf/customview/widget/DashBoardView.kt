@@ -46,11 +46,11 @@ class DashBoardView(context: Context?, attrs: AttributeSet?) : View(context, att
         //给path制定一个圆弧
         dashPath.addArc(
             screenWidth / 2f - RADIUS,
-            screenHeight / 2 - RADIUS,
-            screenWidth / 2 + RADIUS,
-            screenHeight / 2 + RADIUS,
-            90 + OPEN_ANGLE / 2f,
-            360 - OPEN_ANGLE
+            screenHeight / 2f - RADIUS,
+            screenWidth / 2f + RADIUS,
+            screenHeight / 2f + RADIUS,
+            90f + OPEN_ANGLE / 2f,
+            360f - OPEN_ANGLE
         )
         val pathMeasure = PathMeasure(dashPath, false)//第二个参数代码要不要闭合
         //获取path的长度
@@ -60,7 +60,7 @@ class DashBoardView(context: Context?, attrs: AttributeSet?) : View(context, att
         //shape是一个形状，phase是path的偏移量,advance是图形之间的间距
         pathDashPathEffect = PathDashPathEffect(
             scalePath,
-            length / gridCount.toFloat(),
+            length / gridCount.toFloat() - 10f,
             0f,
             PathDashPathEffect.Style.ROTATE
         )
@@ -78,6 +78,9 @@ class DashBoardView(context: Context?, attrs: AttributeSet?) : View(context, att
             false,
             paint
         )*/
+        paint.style = Paint.Style.STROKE
+        paint.color = Color.parseColor("#000000")
+        paint.clearShadowLayer()
         canvas.drawPath(dashPath, paint)
         paint.pathEffect = pathDashPathEffect
         //绘制刻度

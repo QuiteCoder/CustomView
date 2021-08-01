@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/button_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -60,6 +61,7 @@
                 android:text="刻度进度条" />
 
         </LinearLayout>
+
     </ScrollView>
 
 

@@ -1,5 +1,6 @@
 package com.hpf.customview.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
