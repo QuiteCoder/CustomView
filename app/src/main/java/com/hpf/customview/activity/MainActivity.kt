@@ -69,4 +69,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ScaleProgressBarActivity::class.java)
         startActivity(intent)
     }
+
+    fun constraintLayout(view: View) {
+        val intent = Intent(this, ConstraintLayoutActivity::class.java)
+        startActivity(intent)
+    }
 }

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--实现并排效果 start-->
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="实现并排效果"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/images"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+        <ImageView
+            android:id="@+id/icon2"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/images"
+            app:layout_constraintStart_toEndOf="@+id/icon1"
+            app:layout_constraintTop_toTopOf="@+id/icon1" />
+
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/images"
+            app:layout_constraintStart_toEndOf="@+id/icon2"
+            app:layout_constraintTop_toTopOf="@+id/icon1" />
+        <!--实现并排效果 end-->
+
+        <!--实现相对布局效果 start-->
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="相对布局效果"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon1" />
+
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/images"
+            app:layout_constraintStart_toStartOf="@id/tv2"
+            app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="title标题"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/icon4"
+            app:layout_constraintTop_toTopOf="@id/icon4" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="2021年10月1日"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:breakStrategy="simple"
+            android:ellipsize="end"
+            android:text="ABAB:副标题副ABABABABSIMPLE-MAIN标题副标题副标题副标题副标题副标题"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icon4"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <!--实现相对布局效果 end-->
+        <!--居中效果 start-->
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="水平居中+边界居中"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon4" />
+
+        <FrameLayout
+            android:id="@+id/bg1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#DF889098"
+            app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#D83838"
+            android:text="关注"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="@id/bg1"
+            app:layout_constraintEnd_toEndOf="@id/bg1"
+            app:layout_constraintStart_toStartOf="@id/bg1"
+            app:layout_constraintTop_toBottomOf="@id/bg1" />
+        <!--居中效果 end-->
+        <!--权重 start-->
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="权重"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon5"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/images"
+            app:layout_constraintEnd_toStartOf="@id/icon6"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon6"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:src="@drawable/images"
+            app:layout_constraintEnd_toStartOf="@id/icon7"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/icon5"
+            app:layout_constraintTop_toTopOf="@+id/icon5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon7"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:src="@drawable/images"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/icon6"
+            app:layout_constraintTop_toTopOf="@+id/icon5" />
+        <!--权重 end-->
+
+        <!--基准线对齐 start-->
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="基准线对齐"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0074D1"
+            android:text="100"
+            android:textColor="#ffffff"
+            android:textSize="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/symbol1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textSize="20dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/percent"
+            app:layout_constraintStart_toEndOf="@id/percent" />
+        <!--基准线对齐 end-->
+
+        <!--角度对齐 start-->
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="角度对齐"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/percent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sun"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/sun"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv6" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/earth"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/earth"
+
+            app:layout_constraintCircle="@id/sun"
+            app:layout_constraintCircleAngle="45"
+            app:layout_constraintCircleRadius="120dp" />
+
+        <!--角度对齐 end-->
+
+        <!--宽度对齐 start-->
+        <TextView
+            android:id="@+id/tv7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="宽度对齐"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sun" />
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:background="#009688"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="床前明月光，疑似地上霜，举头望明月，低头思故乡"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@id/fl"
+            app:layout_constraintStart_toStartOf="@id/fl"
+            app:layout_constraintTop_toBottomOf="@id/fl" />
+        <!--宽度对齐 end-->
+        <!--比例偏移对齐 start-->
+        <TextView
+            android:id="@+id/tv8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="比例偏移对齐"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/message1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon8"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:src="@drawable/images"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:breakStrategy="simple"
+            android:text="风萧萧兮易水寒,huangpengfei is my english name yet."
+            app:layout_constraintBottom_toBottomOf="@id/icon8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@id/icon8"
+            app:layout_constraintTop_toTopOf="@id/icon8" />
+        <!--比例偏移对齐 end-->
+
+        <!--GonMargin start-->
+        <TextView
+            android:id="@+id/tv9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:text="GoneMargin"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/message3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:breakStrategy="simple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv9"
+            android:text="风萧萧兮易水寒" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon9"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:src="@drawable/images"
+            app:layout_goneMarginStart="30dp"
+            app:layout_constraintStart_toEndOf="@id/message3"
+            app:layout_constraintTop_toBottomOf="@id/tv9" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn2"
+            android:text="setTextVisible"
+            android:textAllCaps="false"
+            android:onClick="setVisible"
+            app:layout_constraintStart_toEndOf="@id/icon9"
+            app:layout_constraintBottom_toBottomOf="@id/icon9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <!--GonMargin end-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -21,44 +21,58 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="shutterButton"
                 android:text="相机拍照按钮动画" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="gotoScaleAnimationPage"
                 android:text="相机切换previewSize缩放动画" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="dashboardView"
                 android:text="仪表盘自定义View" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="materialEditText"
                 android:text="自定义EditText" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="multilineText"
                 android:text="自定义图文控件" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="multitouchview"
                 android:text="多点触控" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:onClick="scaleProgressBar"
                 android:text="刻度进度条" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:onClick="constraintLayout"
+                android:text="ConstraintLayout" />
 
         </LinearLayout>
 

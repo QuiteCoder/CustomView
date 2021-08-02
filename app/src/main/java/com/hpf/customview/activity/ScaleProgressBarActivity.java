@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.hpf.customview.R;
 import com.hpf.customview.widget.DashBoardProgressBar;
 
+import java.util.Queue;
+
 public class ScaleProgressBarActivity extends AppCompatActivity {
 
     private TextView tv;
